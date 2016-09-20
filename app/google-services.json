@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "335220176493",
+    "firebase_url": "https://ipoli-9cf22.firebaseio.com",
+    "project_id": "ipoli-9cf22",
+    "storage_bucket": "ipoli-9cf22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335220176493:android:463eb2b3c9375029",
+        "android_client_info": {
+          "package_name": "io.ipoli.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335220176493-plscc78g3n6b2d1609i4u6h8rr7nvsd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwZaOQ-nHfKYPiWci_vKwqXg18JaYHCeQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
