@@ -27,11 +27,6 @@ allprojects {
         }
     }
 }
-test {
-    useTestNG() {
-        useDefaultListeners = true;
-    };
-}
 
 
 jacoco {
