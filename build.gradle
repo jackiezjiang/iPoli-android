@@ -33,21 +33,34 @@ jacoco {
 toolVersion = "0.7.5.201505241946"
 }
 
-task jacocoTestCoverageReport(type:JacocoReport,dependsOn:"test"){  
-    group = "Reporting"  
-    description = "Generate Jacoco coverage reports after running tests."  
-    reports{  
-        xml.enabled true  
-        html.enabled true  
-        csv.enabled false  
-    }  
-    
-    def coverageSourceDirs = ['src']  
-    additionalSourceDirs = files(coverageSourceDirs)  
-    sourceDirectories = files(coverageSourceDirs)  
-    additionalClassDirs = files(coverageSourceDirs)  
-    executionData = files("$buildDir/outputs/test-code-coverage/coverage.ec")  
-}  
+
+task jacocoTestReport(type: JacocoReport) {
+	dependsOn project.tasks.withType(Test)
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports"
+
+    classDirectories = fileTree(
+            dir: "${project.buildDir}/intermediates/classes/debug",
+    )
+
+    sourceDirectories = files('src/main/java')
+    executionData = files("${project.buildDir}/jacoco/testDebugUnitTest.exec")
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+        xml.destination = "${project.buildDir}/reports/jacoco/test/jacocoTestReport.xml"
+        html.destination = "${project.buildDir}/reports/jacoco/test"
+    }
+
+    doFirst {
+        new File("${project.buildDir}/intermediates/classes").eachFileRecurse { file ->
+            if (file.name.contains('$$')) {
+                file.renameTo(file.path.replace('$$', '$'))
+            }
+        }
+    }
+}
 
 
 task clean(type: Delete) {
