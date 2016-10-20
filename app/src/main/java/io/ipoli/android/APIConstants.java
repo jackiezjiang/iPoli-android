@@ -1,5 +1,5 @@
 
-
+package io.ipoli.android;
 
 public interface APIConstants {
     String DEV_IPOLI_ENDPOINT = "http://10.0.3.2/v1/";
