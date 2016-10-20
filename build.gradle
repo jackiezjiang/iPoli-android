@@ -39,10 +39,6 @@ task jacocoTestReport(type: JacocoReport) {
     group = "Reporting"
     description = "Generate Jacoco coverage reports"
 
-    classDirectories = fileTree(
-            dir: "${project.buildDir}/intermediates/classes/debug",
-    )
-
     sourceDirectories = files('src/main/java')
     executionData = files("${project.buildDir}/jacoco/testDebugUnitTest.exec")
 
@@ -53,13 +49,8 @@ task jacocoTestReport(type: JacocoReport) {
         html.destination = "${project.buildDir}/reports/jacoco/test"
     }
 
-    doFirst {
-        new File("${project.buildDir}/intermediates/classes").eachFileRecurse { file ->
-            if (file.name.contains('$$')) {
-                file.renameTo(file.path.replace('$$', '$'))
-            }
-        }
-    }
+    
+    
 }
 
 
