@@ -103,13 +103,13 @@ task jacocoTestCoverageReport(type: JacocoReport, dependsOn:"test") {
     }
 
     afterEvaluate {
-        classDirectories = files(classDirectories.files.collect {
+        classDirectories = 
             fileTree(dir: ${buildDir}/classes/main,
                     exclude: [
                               '**/support/**',
                               '**/com/**',
                               ])
-        })
+        
     }
     
 }
