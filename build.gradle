@@ -30,19 +30,6 @@ allprojects {
 }
 
 
-android {  
-    buildTypes {
-        debug {
-            testCoverageEnabled = true
- 
-        }
-
- 
-    }
-
- 
-}
-
 
 
 jacoco {
