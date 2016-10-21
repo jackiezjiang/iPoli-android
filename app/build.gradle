@@ -92,7 +92,7 @@ task jacocoTestCoverageReport(type: JacocoReport, dependsOn:"test") {
     group = "Reporting"
     description = "Generate Jacoco coverage reports"
 
-    sourceDirectories = files('src/main/java')
+    sourceDirectories = files('src/main/java/io/ipoli/android')
     executionData = files("${buildDir}/jacoco/allTests.exec")
 
     reports {
