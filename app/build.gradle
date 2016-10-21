@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
-
+apply plugin: 'jacoco'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
@@ -81,5 +81,30 @@ dependencies {
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.5'
     compile 'com.github.devlight:infinitecycleviewpager:1.0.2'
 }
+
+jacoco {
+toolVersion = "0.7.5.201505241946"
+}
+
+
+task jacocoTestCoverageReport(type: JacocoReport, dependsOn:"test") {
+	
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports"
+
+    sourceDirectories = files('src/main/java')
+    executionData = files("${buildDir}/jacoco/allTests.exec")
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+        //xml.destination = "${buildDir}/reports/jacoco/tests/release/jacocoTestReport.xml"
+        //html.destination = "${buildDir}/reports/jacoco/tests/release"
+    }
+
+    
+    
+}
+
 
 apply plugin: 'com.google.gms.google-services'
