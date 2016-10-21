@@ -30,6 +30,21 @@ allprojects {
 }
 
 
+android {  
+    buildTypes {
+        debug {
+            testCoverageEnabled = true
+ 
+        }
+
+ 
+    }
+
+ 
+}
+
+
+
 jacoco {
 toolVersion = "0.7.5.201505241946"
 }
