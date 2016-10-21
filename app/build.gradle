@@ -102,15 +102,7 @@ task jacocoTestCoverageReport(type: JacocoReport, dependsOn:"test") {
         //html.destination = "${buildDir}/reports/jacoco/tests/release"
     }
 
-    afterEvaluate {
-        classDirectories = 
-            fileTree(dir: ${buildDir}/classes/main,
-                    exclude: [
-                              '**/support/**',
-                              '**/com/**',
-                              ])
-        
-    }
+    
     
 }
 
