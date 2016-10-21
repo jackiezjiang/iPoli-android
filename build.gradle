@@ -35,7 +35,7 @@ toolVersion = "0.7.5.201505241946"
 }
 
 
-task jacocoTestReport(type: JacocoReport) {
+task jacocoTestCoverageReport(type: JacocoReport) {
 	dependsOn project.tasks.withType(Test)
     group = "Reporting"
     description = "Generate Jacoco coverage reports"
