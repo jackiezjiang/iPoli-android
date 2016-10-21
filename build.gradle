@@ -1,7 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-apply(plugin: "jacoco");
 
+apply plugin: "application"
+apply plugin: "jacoco"
 
 buildscript {
     repositories {
@@ -34,25 +35,40 @@ toolVersion = "0.7.5.201505241946"
 }
 
 
+
+mainClassName = "org.gradle.MyMain"
+
+jacoco {
+    applyTo run
+}
+
+task applicationCodeCoverageReport(type:JacocoReport){
+    executionData run
+    sourceSets sourceSets.main
+}
+
+
+/*
+
 task jacocoTestReport(type: JacocoReport) {
 	dependsOn project.tasks.withType(Test)
     group = "Reporting"
     description = "Generate Jacoco coverage reports"
 
     sourceDirectories = files('src/main/java')
-    executionData = files("${project.buildDir}/jacoco/testDebugUnitTest.exec")
+    executionData = files("${buildDir}/jacoco/allTests.exec")
 
     reports {
         xml.enabled = true
         html.enabled = true
-        xml.destination = "${project.buildDir}/reports/jacoco/test/jacocoTestReport.xml"
-        html.destination = "${project.buildDir}/reports/jacoco/test"
+        xml.destination = "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
+        html.destination = "${buildDir}/reports/jacoco/test"
     }
 
     
     
 }
-
+*/
 
 task clean(type: Delete) {
     delete rootProject.buildDir
