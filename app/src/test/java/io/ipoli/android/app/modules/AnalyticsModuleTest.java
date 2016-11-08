@@ -83,7 +83,7 @@ public class AnalyticsModuleTest {
         AnalyticsModule ana = new AnalyticsModule();
 
 
-        ana.provideAnalyticsService(context, mockStorage);
+        asserteNotNull(ana.provideAnalyticsService(context, mockStorage));
 
 
 
