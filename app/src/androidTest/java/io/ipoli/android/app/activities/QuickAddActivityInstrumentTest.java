@@ -30,7 +30,7 @@ public class QuickAddActivityInstrumentTest {
 
     @Test
     public void testCancel() {
-        onView(withId(R.id.quick_add_text)).perform(click());
+        onView(withId(R.id.quick_add_text)).perform(typeText("Some Test"));
 
     }
 
