@@ -16,7 +16,7 @@ android {
         applicationId "io.ipoli.android"
         multiDexEnabled true
         minSdkVersion 21
-        targetSdkVersion 24
+        targetSdkVersion 25
         versionCode 74
         versionName "1.8.2"
 	
