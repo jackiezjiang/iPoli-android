@@ -30,7 +30,10 @@ public class QuickAddActivityInstrumentTest {
 
     @Test
     public void testCancel() {
-        onView(withId(R.id.quick_add_text)).perform(typeText("Some Test"));
+        Intent i = new Intent(mainActivityTestRule.getActivity(), MainActivity.class);
+        i.setAction(ACTION_ADD_QUEST_FROM_WIDGET);
+
+            onView(withId(R.id.drawer_layout)).perform(click());
 
     }
 
