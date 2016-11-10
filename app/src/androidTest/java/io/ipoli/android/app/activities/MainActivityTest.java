@@ -3,6 +3,7 @@ package io.ipoli.android;
 import android.app.Fragment;
 import android.app.Instrumentation;
 import android.content.Intent;
+import android.support.design.widget.NavigationView;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -39,7 +40,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     private Solo solo;
     private MainActivity mMainActivity;
     private Instrumentation mInstrumentation;
-
+    private NavigationView navigationView;
     private View contentContainer;;
 
 
@@ -56,6 +57,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
         mMainActivity = getActivity();
 
         contentContainer = mMainActivity.findViewById(R.id.content_container );
+        navigationView = mMainActivity.navigationView;
 
     }
 
@@ -64,6 +66,8 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     public void test1() {
         View mainActivityDecorView = mMainActivity.getWindow().getDecorView();
         ViewAsserts.assertOnScreen(mainActivityDecorView, contentContainer);
+        navigationView.getMenu().findItem(R.id.challenges);
+
     }
 
 
