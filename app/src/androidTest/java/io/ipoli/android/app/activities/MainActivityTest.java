@@ -2,6 +2,7 @@ package io.ipoli.android;
 
 import android.app.Fragment;
 import android.app.Instrumentation;
+import android.content.ClipData;
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.test.filters.LargeTest;
@@ -9,7 +10,9 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.v4.widget.DrawerLayout;
 import android.test.ActivityInstrumentationTestCase2;
+import android.test.TouchUtils;
 import android.test.ViewAsserts;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.robotium.solo.Solo;
@@ -41,7 +44,8 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     private MainActivity mMainActivity;
     private Instrumentation mInstrumentation;
     private NavigationView navigationView;
-    private View contentContainer;;
+    private View contentContainer;
+    private View quickAdd;
 
 
 
@@ -57,6 +61,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
         mMainActivity = getActivity();
 
         contentContainer = mMainActivity.findViewById(R.id.content_container );
+        quickAdd = mMainActivity.findViewById(R.id.add_quest);
         navigationView = mMainActivity.navigationView;
 
     }
@@ -66,7 +71,13 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     public void test1() {
         View mainActivityDecorView = mMainActivity.getWindow().getDecorView();
         ViewAsserts.assertOnScreen(mainActivityDecorView, contentContainer);
-        navigationView.getMenu().findItem(R.id.challenges);
+
+        Instrumentation.ActivityMonitor searchActivityMonitor =
+                mInstrumentation.addMonitor(QuickAddActivity.class.getName(),
+                        null, false);
+
+        TouchUtils.clickView(this, quickAdd);
+        MenuItem challenge = navigationView.getMenu().findItem(R.id.challenges);
 
     }
 
