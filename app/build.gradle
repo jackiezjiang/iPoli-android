@@ -116,7 +116,7 @@ toolVersion = "0.7.5.201505241946"
 }
 
 
-task jacocoTestCoverageReport(type: JacocoReport, dependsOn:"testDebugUnitTest") {
+task jacocoTestCoverageReport(type: JacocoReport, dependsOn:"connectedDebugAndroidTest") {
 	
     group = "Reporting"
     description = "Generate Jacoco coverage reports"
