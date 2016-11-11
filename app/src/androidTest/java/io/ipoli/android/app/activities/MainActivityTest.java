@@ -76,7 +76,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
                 mInstrumentation.addMonitor(QuickAddActivity.class.getName(),
                         null, false);
 
-        TouchUtils.clickView(this, quickAdd);
+        //TouchUtils.clickView(this, quickAdd);
         //MenuItem challenge = navigationView.getMenu().findItem(R.id.challenges);
 
     }
