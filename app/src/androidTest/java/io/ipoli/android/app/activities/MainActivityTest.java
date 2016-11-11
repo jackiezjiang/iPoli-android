@@ -77,7 +77,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
                         null, false);
 
         TouchUtils.clickView(this, quickAdd);
-        MenuItem challenge = navigationView.getMenu().findItem(R.id.challenges);
+        //MenuItem challenge = navigationView.getMenu().findItem(R.id.challenges);
 
     }
 
