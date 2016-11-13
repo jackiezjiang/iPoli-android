@@ -122,8 +122,8 @@ task jacocoTestCoverageReport(type: JacocoReport, dependsOn:"connectedDebugAndro
     description = "Generate Jacoco coverage reports"
 
     sourceDirectories = files('src/main/java/io/ipoli/android')
-    executionData = files("${buildDir}/jacoco/allTests.exec")
-
+    //executionData = files("${buildDir}/jacoco/allTests.exec")
+	 executionData =  files("${buildDir}/outputs/code-coverage/connected/coverage.ec")
     reports {
         xml.enabled = true
         html.enabled = true
