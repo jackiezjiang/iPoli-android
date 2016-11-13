@@ -128,7 +128,7 @@ task jacocoTestCoverageReport(type: JacocoReport, dependsOn:"connectedDebugAndro
         xml.enabled = true
         html.enabled = true
         //xml.destination = "${buildDir}/reports/jacoco/tests/release/jacocoTestReport.xml"
-        //html.destination = "${buildDir}/reports/jacoco/tests/release"
+       xml.destination = "${buildDir}/reports/coverage/debug/report.xml"
     }
 
     
