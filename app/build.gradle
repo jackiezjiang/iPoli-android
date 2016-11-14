@@ -116,19 +116,38 @@ toolVersion = "0.7.5.201505241946"
 }
 
 
-task jacocoTestCoverageReport(type: JacocoReport, dependsOn:"testDebugUnitTest") {
+task jacocoTestCoverageReport(type: JacocoReport, dependsOn:"cAT") {
 	
     group = "Reporting"
     description = "Generate Jacoco coverage reports"
 
     sourceDirectories = files('src/main/java/io/ipoli/android')
     //executionData = files("${buildDir}/jacoco/allTests.exec")
-	 executionData =  files('${buildDir}/outputs/code-coverage/connected/coverage.ec'，'${buildDir}/jacoco/allTests.exec')
+	 executionData =  files('${buildDir}/outputs/code-coverage/connected/coverage.ec')
     reports {
         xml.enabled = true
         html.enabled = true
         //xml.destination = "${buildDir}/reports/jacoco/tests/release/jacocoTestReport.xml"
        xml.destination = "${buildDir}/reports/coverage/debug/report.xml"
+    }
+
+    
+    
+}
+
+task jacocoTestCoverageReport(type: JacocoReport, dependsOn:"test") {
+	
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports"
+
+    sourceDirectories = files('src/main/java/io/ipoli/android')
+    executionData = files("${buildDir}/jacoco/allTests.exec")
+	 //executionData =  files('${buildDir}/outputs/code-coverage/connected/coverage.ec')
+    reports {
+        xml.enabled = true
+        html.enabled = true
+        //xml.destination = "${buildDir}/reports/jacoco/tests/release/jacocoTestReport.xml"
+       //xml.destination = "${buildDir}/reports/coverage/debug/report.xml"
     }
 
     
