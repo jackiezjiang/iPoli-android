@@ -123,7 +123,7 @@ task jacocoInstrumentTestCoverageReport(type: JacocoReport, dependsOn:["connecte
 
     sourceDirectories = files('src/main/java/io/ipoli/android')
     //executionData = files("${buildDir}/jacoco/allTests.exec")
-	 executionData =  files(['${buildDir}/outputs/code-coverage/connected/coverage.ec','${buildDir}/jacoco/allTests.exec'])
+	 executionData =  files(['${buildDir}/outputs/code-coverage/connected/coverage.ec','${buildDir}/jacoco/testDebugUnitTest.exec'])
     reports {
         xml.enabled = true
         html.enabled = true
