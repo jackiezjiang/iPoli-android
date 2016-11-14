@@ -123,7 +123,7 @@ task jacocoInstrumentTestCoverageReport(type: JacocoReport, dependsOn:"connected
 
     sourceDirectories = files('src/main/java/io/ipoli/android')
     //executionData = files("${buildDir}/jacoco/allTests.exec")
-	 executionData =  files('${buildDir}/outputs/code-coverage/connected/coverage.ec')
+	 executionData =  files(['${buildDir}/outputs/code-coverage/connected/coverage.ec','${buildDir}/jacoco/allTests.exec'])
     reports {
         xml.enabled = true
         html.enabled = true
@@ -135,24 +135,6 @@ task jacocoInstrumentTestCoverageReport(type: JacocoReport, dependsOn:"connected
     
 }
 
-task jacocoTestCoverageReport(type: JacocoReport, dependsOn:"test") {
-	
-    group = "Reporting"
-    description = "Generate Jacoco coverage reports"
-
-    sourceDirectories = files('src/main/java/io/ipoli/android')
-    executionData = files("${buildDir}/jacoco/allTests.exec")
-	 //executionData =  files('${buildDir}/outputs/code-coverage/connected/coverage.ec')
-    reports {
-        xml.enabled = true
-        html.enabled = true
-        //xml.destination = "${buildDir}/reports/jacoco/tests/release/jacocoTestReport.xml"
-       //xml.destination = "${buildDir}/reports/coverage/debug/report.xml"
-    }
-
-    
-    
-}
 
 
 apply plugin: 'com.google.gms.google-services'
