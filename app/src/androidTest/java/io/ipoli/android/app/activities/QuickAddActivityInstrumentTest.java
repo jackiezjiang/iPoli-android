@@ -8,6 +8,9 @@ import android.support.test.runner.AndroidJUnit4;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import io.ipoli.android.app.ui.CategoryView;
 import io.ipoli.android.quest.data.Quest;
 import org.junit.Rule;
 import org.junit.Test;
@@ -52,7 +55,7 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
 
     }
 
-       @Test
+    @Test
     public void testAdd() {
 
 
@@ -96,7 +99,6 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
     }
 
 
-  
 
     @Test
     public void testCancel() {
