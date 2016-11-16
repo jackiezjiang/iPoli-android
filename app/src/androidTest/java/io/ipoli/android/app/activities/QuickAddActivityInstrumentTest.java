@@ -103,7 +103,7 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
 
     @Test
     public void testCancel() {
-
+        quickAddActivity = getActivity();
         Button button=  (Button) quickAddActivity.findViewById(R.id.cancel);
         pressImeActionButton();
 
