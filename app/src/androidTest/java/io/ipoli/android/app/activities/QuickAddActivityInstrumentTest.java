@@ -23,7 +23,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestCase2<QuickAddActivity> {
     private QuickAddActivity quickAddActivity;
     private Instrumentation mInstrumentation;
-
+    private TextInputEditText textInputEditText;
+    
     public QuickAddActivityInstrumentTest() {
         super(QuickAddActivity.class);
     }
