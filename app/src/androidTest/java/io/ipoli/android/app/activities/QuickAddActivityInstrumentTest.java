@@ -55,8 +55,7 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
     @Test
     public void testAdd() {
 
-        Button button=  (Button) quickAddActivity.findViewById(R.id.add);
-        pressImeActionButton();
+        
         String additionalText =   textInputEditText.getEditableText().toString();
         final String text = "TEST" + additionalText;
         quickAddActivity.runOnUiThread(new Runnable() {
@@ -68,7 +67,8 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
 
 
         });
-
+Button button=  (Button) quickAddActivity.findViewById(R.id.add);
+        pressImeActionButton();
        //textInputEditText.setText(additionalText);
 
 
