@@ -128,7 +128,7 @@ task jacocoInstrumentTestCoverageReport(type: JacocoReport, dependsOn:["test","c
         xml.enabled = true
         html.enabled = true
         //xml.destination = "${buildDir}/reports/jacoco/tests/release/jacocoTestReport.xml"
-       xml.destination = "${buildDir}/reports/coverage/debug/report.xml"
+       //xml.destination = "${buildDir}/reports/coverage/debug/report.xml"
     }
 
     
