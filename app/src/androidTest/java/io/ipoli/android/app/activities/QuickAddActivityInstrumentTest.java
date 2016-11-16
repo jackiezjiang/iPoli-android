@@ -47,6 +47,20 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
         String additionalText = "TEST";
         Button button=  (Button) quickAddActivity.findViewById(R.id.add);
         pressImeActionButton();
+        
+        
+        
+         final String text = "TEST" + additionalText;
+        quickAddActivity.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                textInputEditText.setText(text);
+            }
+
+
+        });
+
 
     }
 
