@@ -89,7 +89,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
         FloatingActionButton quest = (FloatingActionButton) mMainActivity.findViewById(R.id.add_quest);
 
 
-        quest.callOnClick();
+        //quest.callOnClick();
 
 
 
