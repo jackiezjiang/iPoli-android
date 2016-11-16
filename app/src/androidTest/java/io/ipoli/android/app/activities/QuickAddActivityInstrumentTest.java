@@ -37,6 +37,9 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
 
 
          Button button=  (Button) quickAddActivity.findViewById(R.id.cancel);
+          textInputEditText = (TextInputEditText) quickAddActivity.findViewById(R.id.quick_add_text);
+
+
 
 
     }
