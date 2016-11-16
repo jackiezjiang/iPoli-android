@@ -52,10 +52,10 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
 
     }
 
-    @Test
+       @Test
     public void testAdd() {
 
-        
+
         String additionalText =   textInputEditText.getEditableText().toString();
         final String text = "TEST" + additionalText;
         quickAddActivity.runOnUiThread(new Runnable() {
@@ -67,7 +67,27 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
 
 
         });
-Button button=  (Button) quickAddActivity.findViewById(R.id.add);
+
+
+
+        CategoryView categoryView = (CategoryView) quickAddActivity.findViewById(R.id.quest_category);
+        ImageView imageView = (ImageView) categoryView.findViewById(R.id.category_wellness);
+
+        quickAddActivity.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                imageView.callOnClick();
+
+            }
+
+
+
+        });
+//        imageView.callOnClick();
+
+        Button button=  (Button) quickAddActivity.findViewById(R.id.add);
         pressImeActionButton();
        //textInputEditText.setText(additionalText);
 
@@ -76,25 +96,7 @@ Button button=  (Button) quickAddActivity.findViewById(R.id.add);
     }
 
 
-
-    private  void updateText(final TextInputEditText textInputEditText, final String value) {
-        try {
-
-            quickAddActivity.runOnUiThread(new Runnable() {
-
-                @Override
-                public void run() {
-                    textInputEditText.setText(value);
-                }
-
-
-            });
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-
-    }
+  
 
     @Test
     public void testCancel() {
