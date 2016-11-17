@@ -103,7 +103,7 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
 
     }
 
-
+/*
 
     @Test
     public void testCancel() {
@@ -115,6 +115,25 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
 
     }
 
+*/
+    
+    
+       @Test
+    public void testCancel() {
+        quickAddActivity = getActivity();
+        //quickAddActivity.hideKeyboard();
+
+        Button button=  (Button) quickAddActivity.findViewById(R.id.cancel);
+        View.OnClickListener myhandler1 = new View.OnClickListener() {
+            public void onClick(View v) {
+                quickAddActivity.onAddQuest(v);
+            }
+        };
+
+        //pressImeActionButton();
+
+
+    }
 
 
 
