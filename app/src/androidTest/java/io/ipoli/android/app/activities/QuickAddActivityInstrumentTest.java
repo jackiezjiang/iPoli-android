@@ -91,6 +91,8 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
 //        imageView.callOnClick();
 
         button=  (Button) quickAddActivity.findViewById(R.id.add);
+        View view = button.findFocus(); 
+        
         pressImeActionButton();
        //textInputEditText.setText(additionalText);
 
