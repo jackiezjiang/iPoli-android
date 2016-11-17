@@ -57,7 +57,8 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
 
     @Test
     public void testAdd() {
-
+         String additionalText =   textInputEditText.getEditableText().toString();
+        Button button=  (Button) quickAddActivity.findViewById(R.id.add);
         String additionalText =   textInputEditText.getEditableText().toString();
         final String text = "TEST" + additionalText;
         quickAddActivity.runOnUiThread(new Runnable() {
@@ -89,7 +90,7 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
         });
 //        imageView.callOnClick();
 
-        Button button=  (Button) quickAddActivity.findViewById(R.id.add);
+        button=  (Button) quickAddActivity.findViewById(R.id.add);
         pressImeActionButton();
        //textInputEditText.setText(additionalText);
 
