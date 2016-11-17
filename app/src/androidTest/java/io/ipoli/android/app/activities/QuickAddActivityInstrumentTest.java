@@ -57,9 +57,9 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
 
     @Test
     public void testAdd() {
-         String additionalText =   textInputEditText.getEditableText().toString();
+         
         Button button=  (Button) quickAddActivity.findViewById(R.id.add);
-        String additionalText =   textInputEditText.getEditableText().toString();
+       
        final String text = "TEST at 20:00 for 2 hours tomorrow";
         quickAddActivity.runOnUiThread(new Runnable() {
 
