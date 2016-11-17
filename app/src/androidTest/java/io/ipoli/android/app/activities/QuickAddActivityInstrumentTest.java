@@ -104,6 +104,7 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
     @Test
     public void testCancel() {
         quickAddActivity = getActivity();
+         quickAddActivity.hideKeyboard();
         Button button=  (Button) quickAddActivity.findViewById(R.id.cancel);
         pressImeActionButton();
 
