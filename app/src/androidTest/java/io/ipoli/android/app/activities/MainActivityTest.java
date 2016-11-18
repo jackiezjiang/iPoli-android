@@ -2,7 +2,7 @@ package io.ipoli.android;
 
 import android.app.Fragment;
 import android.app.Instrumentation;
-import android.content.ClipData;
+
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -17,8 +17,10 @@ import android.test.TouchUtils;
 import android.test.ViewAsserts;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.robotium.solo.Solo;
 
@@ -36,6 +38,8 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+
+
 import static com.flurry.sdk.kp.a.f;
 
 
@@ -50,7 +54,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     private Instrumentation mInstrumentation;
     private NavigationView navigationView;
     private View contentContainer;
-    private View quickAdd;
+
 
 
 
@@ -66,38 +70,38 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
         mMainActivity = getActivity();
 
         contentContainer = mMainActivity.findViewById(R.id.content_container );
-        quickAdd = mMainActivity.findViewById(R.id.add_quest);
-        navigationView = mMainActivity.navigationView;
+
+        navigationView = (NavigationView) mMainActivity.findViewById(R.id.navigation_view);
 
     }
 
+/*
+    @Test
+    public void testAddButton() {
+        FloatingActionButton quickAdd = (FloatingActionButton) mMainActivity.findViewById(R.id.add_quest);
+        mMainActivity.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                quickAdd.callOnClick();
+            }
+        });
+
+
+
+    }
+*/
 
     @Test
-    public void test1() {
-        View mainActivityDecorView = mMainActivity.getWindow().getDecorView();
-        ViewAsserts.assertOnScreen(mainActivityDecorView, contentContainer);
+    public void testMenu() {
+       assertNotNull(navigationView);
 
-        Instrumentation.ActivityMonitor searchActivityMonitor =
-                mInstrumentation.addMonitor(QuickAddActivity.class.getName(),
-                        null, false);
+       MenuItem challenges = navigationView.getMenu().findItem(R.id.challenges);
 
-
-
-
-
-
-        FloatingActionButton quest = (FloatingActionButton) mMainActivity.findViewById(R.id.add_quest);
-
-
-        //quest.callOnClick();
-
-
-
-
-        //MenuItem challenge = navigationView.getMenu().findItem(R.id.challenges);
+       assertNotNull(challenges.isChecked());
+        mMainActivity.onOptionsItemSelected(challenges);
 
     }
-
 
 
 
