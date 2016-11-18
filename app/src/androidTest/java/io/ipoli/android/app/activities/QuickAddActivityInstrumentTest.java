@@ -103,7 +103,7 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
                quickAddActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-
+                 button.setOnClickListener(myhandler1);
                 button.getRootView().performClick();
             }
         });
