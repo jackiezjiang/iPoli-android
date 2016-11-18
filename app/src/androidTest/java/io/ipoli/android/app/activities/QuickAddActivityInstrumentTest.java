@@ -93,22 +93,7 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
         
         
         Button button = (Button) quickAddActivity.findViewById(R.id.cancel);
-        View.OnClickListener myhandler1 = new View.OnClickListener() {
-            public void onClick(View v) {
-                quickAddActivity.onAddQuest(v);
-            }
-        };
-
-       
-               quickAddActivity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                 button.setOnClickListener(myhandler1);
-                button.getRootView().performClick();
-            }
-        });
-
-
+        TouchUtils.clickView(this, button);
 
     
         
