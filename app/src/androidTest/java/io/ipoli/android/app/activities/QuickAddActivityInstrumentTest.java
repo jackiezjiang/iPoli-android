@@ -1,5 +1,5 @@
 package io.ipoli.android.app.activities;
-
+import android.test.TouchUtils;
 import android.app.Instrumentation;
 import android.support.design.widget.TextInputEditText;
 import android.support.test.filters.LargeTest;
