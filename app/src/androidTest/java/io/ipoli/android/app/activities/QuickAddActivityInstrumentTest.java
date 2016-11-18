@@ -95,25 +95,7 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
              Button button = (Button) quickAddActivity.findViewById(R.id.add);
         assertEquals("ADD", button.getText());
 
-        Instrumentation.ActivityMonitor monitor = mInstrumentation
-                .addMonitor(Instrumentation.ActivityMonitor.class.getName(),
-                        null, false);
-
-        // Wait for activity to fix inject error; Increase or decrease as needed
-        monitor.waitForActivityWithTimeout(2000);
-
-
-
-        View.OnClickListener myhandler1 = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                quickAddActivity.onAddQuest(v);
-            }
-        };
-
-        button.setOnClickListener(myhandler1);
-        TouchUtils.clickView(this, button);
-
+        pressImeActionButton();
 
     
         
