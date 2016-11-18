@@ -88,6 +88,10 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
 
 
         });
+        
+   
+        
+        
         Button button = (Button) quickAddActivity.findViewById(R.id.cancel);
         View.OnClickListener myhandler1 = new View.OnClickListener() {
             public void onClick(View v) {
@@ -95,12 +99,19 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
             }
         };
 
-        quickAddActivity.runOnUiThread(new Runnable() {
+       
+               quickAddActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                button.performClick();
+
+                button.getRootView().performClick();
             }
         });
+
+
+
+    
+        
 
 
     }
