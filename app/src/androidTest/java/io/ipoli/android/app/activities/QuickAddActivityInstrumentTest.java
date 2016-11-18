@@ -90,11 +90,12 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
         });
 //        imageView.callOnClick();
         Button button2 = (Button) quickAddActivity.findViewById(R.id.add);
-         View.OnClickListener myhandler1 = new View.OnClickListener() {
+          button2.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 quickAddActivity.onAddQuest(v);
             }
-        };
+        });
 
        // pressImeActionButton();
        //textInputEditText.setText(additionalText);
