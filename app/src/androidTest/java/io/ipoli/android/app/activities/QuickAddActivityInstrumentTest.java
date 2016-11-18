@@ -127,7 +127,16 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
             }
         };
 
-        pressImeActionButton();
+        
+       quickAddActivity.runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+
+         button.performClick();
+        }
+    });
+
+       
 
 
     }
