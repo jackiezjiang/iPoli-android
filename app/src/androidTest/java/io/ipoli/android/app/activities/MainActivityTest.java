@@ -77,6 +77,22 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
 
     @Test
+    public void testAddButton() {
+        mMainActivity = getActivity();
+        FloatingActionButton quickAdd = (FloatingActionButton) mMainActivity.findViewById(R.id.add_quest);
+        mMainActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                quickAdd.callOnClick();
+            }
+        });
+
+
+
+    }
+
+
+    @Test
     public void testMenu() {
        assertNotNull(navigationView);
 
@@ -88,21 +104,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     }
 
 
-    @Test
-    public void testAddButton() {
-        mMainActivity = getActivity();
-        FloatingActionButton quickAdd = (FloatingActionButton) mMainActivity.findViewById(R.id.add_quest);
-        mMainActivity.runOnUiThread(new Runnable() {
 
-            @Override
-            public void run() {
-                quickAdd.callOnClick();
-            }
-        });
-
-
-
-    }
 
 
 
