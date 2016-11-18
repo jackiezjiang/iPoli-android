@@ -58,7 +58,7 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
     @Test
     public void testAdd() {
          
-        Button button=  (Button) quickAddActivity.findViewById(R.id.add);
+       
        
        final String text = "TEST at 20:00 for 2 hours tomorrow";
         quickAddActivity.runOnUiThread(new Runnable() {
