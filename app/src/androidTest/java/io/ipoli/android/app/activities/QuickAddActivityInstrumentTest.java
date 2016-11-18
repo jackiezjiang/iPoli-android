@@ -33,7 +33,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 @LargeTest
 
-public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestCase2<QuickAddActivity> implements View.OnClickListener{
+public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestCase2<QuickAddActivity> {
     private QuickAddActivity quickAddActivity;
     private Instrumentation mInstrumentation;
     private TextInputEditText textInputEditText;
@@ -90,21 +90,9 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
         });
 //        imageView.callOnClick();
         Button button2 = (Button) quickAddActivity.findViewById(R.id.add);
-        button2.setOnClickListener(this);
+   
 
-
-        quickAddActivity.runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-        button2.performClick();
-
-            }
-
-
-
-        });
-
+ 
        // pressImeActionButton();
        //textInputEditText.setText(additionalText);
 
@@ -139,7 +127,7 @@ public class QuickAddActivityInstrumentTest extends ActivityInstrumentationTestC
             }
         };
 
-        //pressImeActionButton();
+        pressImeActionButton();
 
 
     }
