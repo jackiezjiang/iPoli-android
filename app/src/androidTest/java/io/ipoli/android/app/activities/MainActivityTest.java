@@ -75,7 +75,19 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
     }
 
-/*
+
+    @Test
+    public void testMenu() {
+       assertNotNull(navigationView);
+
+       MenuItem challenges = navigationView.getMenu().findItem(R.id.challenges);
+
+       assertNotNull(challenges.isChecked());
+        mMainActivity.onOptionsItemSelected(challenges);
+
+    }
+
+
     @Test
     public void testAddButton() {
         FloatingActionButton quickAdd = (FloatingActionButton) mMainActivity.findViewById(R.id.add_quest);
@@ -88,18 +100,6 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
         });
 
 
-
-    }
-*/
-
-    @Test
-    public void testMenu() {
-       assertNotNull(navigationView);
-
-       MenuItem challenges = navigationView.getMenu().findItem(R.id.challenges);
-
-       assertNotNull(challenges.isChecked());
-        mMainActivity.onOptionsItemSelected(challenges);
 
     }
 
