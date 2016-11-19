@@ -31,6 +31,7 @@ import org.junit.runner.RunWith;
 
 import io.ipoli.android.app.activities.QuickAddActivity;
 import io.ipoli.android.quest.activities.EditQuestActivity;
+import io.ipoli.android.quest.events.DuplicateQuestRequestEvent;
 import io.ipoli.android.quest.events.EditQuestRequestEvent;
 
 import static android.support.test.espresso.Espresso.onView;
@@ -71,7 +72,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
         mInstrumentation = getInstrumentation();
         super.setUp();
         mMainActivity = getActivity();
-        //solo = new Solo(mInstrumentation, mMainActivity);
+        solo = new Solo(mInstrumentation, mMainActivity);
         contentContainer = mMainActivity.findViewById(R.id.content_container );
         drawerLayout = (DrawerLayout) mMainActivity.findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) mMainActivity.findViewById(R.id.navigation_view);
@@ -97,21 +98,16 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     @Test
     public void testMenu() {
 
-        try {
-            Thread.currentThread().sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-
        assertNotNull(navigationView);
+
         Menu menu = navigationView.getMenu();
         MenuItem challenge = menu.findItem(R.id.challenges);
+
 
         mMainActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                mMainActivity.onStart();
                 drawerLayout.openDrawer(navigationView);
                 mMainActivity.onOptionsItemSelected(challenge);
 
@@ -121,11 +117,12 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
 
 
-        //solo.clickOnActionBarItem(R.id.challenges);
 
-
-
-
+        try {
+            Thread.currentThread().sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 
