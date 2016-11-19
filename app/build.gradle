@@ -18,7 +18,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 25
         versionCode 74
-        versionName "1.8.21"
+        versionName "1.8.2"
 	
 	
 	testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
