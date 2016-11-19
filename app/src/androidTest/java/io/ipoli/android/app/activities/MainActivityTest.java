@@ -120,11 +120,6 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
 
 
-        try {
-            Thread.currentThread().sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         //solo.clickOnActionBarItem(R.id.challenges);
 
