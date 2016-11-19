@@ -2,7 +2,7 @@ package io.ipoli.android;
 
 import android.app.Fragment;
 import android.app.Instrumentation;
-
+import static android.os.SystemClock.sleep;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
