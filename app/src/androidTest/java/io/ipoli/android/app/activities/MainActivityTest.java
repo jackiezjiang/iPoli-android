@@ -107,9 +107,8 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
         mMainActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                mMainActivity.onStart();
                 drawerLayout.openDrawer(navigationView);
-                mMainActivity.onOptionsItemSelected(challenge);
+                mMainActivity.onNavigationItemSelected(challenge);
 
             }
         });
@@ -117,12 +116,6 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
 
 
-
-        try {
-            Thread.currentThread().sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
 
