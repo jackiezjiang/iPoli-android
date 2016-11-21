@@ -71,6 +71,7 @@ public class EditChallengeActivityInstrumentTest extends ActivityInstrumentation
 
             @Override
             public void run() {
+                imageView.callOnClick();
                 relativeLayout.performClick();
             }
 
