@@ -82,8 +82,11 @@ public class EditChallengeActivityInstrumentTest extends ActivityInstrumentation
         TextView challengeQuestion = (TextView) editChallengeActivity.findViewById(R.id.challenge_expected_results_question);
         assertNotNull(challengeQuestion.getText().toString());
 
+        getInstrumentation().waitForIdleSync();
+        getInstrumentation().sendStringSync("Hello Android!");
+        getInstrumentation().waitForIdleSync();
 
-
+    
         ActionMenuItemView save=  (ActionMenuItemView) editChallengeActivity.findViewById(R.id.action_save);
         assertNotNull(save);
         editChallengeActivity.runOnUiThread(new Runnable() {
