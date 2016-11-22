@@ -2,7 +2,7 @@ package io.ipoli.android;
 
 import android.app.Fragment;
 import android.app.Instrumentation;
-import static android.os.SystemClock.sleep;
+
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -34,7 +34,7 @@ import io.ipoli.android.quest.activities.EditQuestActivity;
 import io.ipoli.android.quest.events.DuplicateQuestRequestEvent;
 import io.ipoli.android.quest.events.EditQuestRequestEvent;
 
-
+import static android.os.SystemClock.sleep;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.doubleClick;
@@ -45,6 +45,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 
 import static com.flurry.sdk.kp.a.f;
+import static java.lang.Enum.valueOf;
 
 
 /**
@@ -81,14 +82,17 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     }
 
 
+
     @Test
     public void testAddButton() {
         sleep(10000);
+
         FloatingActionButton quickAdd = (FloatingActionButton) mMainActivity.findViewById(R.id.add_quest);
         mMainActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 quickAdd.callOnClick();
+
             }
         });
 
@@ -96,36 +100,181 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     }
 
 
-    @Test
+     @Test
     public void testMenu() {
 
-       assertNotNull(navigationView);
 
         Menu menu = navigationView.getMenu();
-        MenuItem challenge = menu.findItem(R.id.challenges);
+        MenuItem challenges = menu.findItem(R.id.challenges);
+        MenuItem  overView= menu.findItem(R.id.overview);
+         MenuItem calendar = menu.findItem(R.id.calendar);
+         MenuItem inbox = menu.findItem(R.id.inbox);
+         MenuItem repeating_quests = menu.findItem(R.id.repeating_quests);
+         MenuItem growth = menu.findItem(R.id.growth);
+         MenuItem rewards = menu.findItem(R.id.rewards);
+         MenuItem invite_friends = menu.findItem(R.id.invite_friends);
+         MenuItem settings = menu.findItem(R.id.settings);
+         MenuItem feedback = menu.findItem(R.id.feedback);
+         MenuItem contact_us = menu.findItem(R.id.contact_us);
+
+
+
+
 
 
         mMainActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 drawerLayout.openDrawer(navigationView);
-                mMainActivity.onNavigationItemSelected(challenge);
+                assertNotNull(challenges);
+                mMainActivity.onNavigationItemSelected(challenges);
+
+
 
             }
         });
 
+         try {
+             Thread.currentThread().sleep(10000);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
 
+         mMainActivity.runOnUiThread(new Runnable() {
+             @Override
+             public void run() {
+                 drawerLayout.openDrawer(navigationView);
+                 assertNotNull(overView);
+                 mMainActivity.onNavigationItemSelected(overView);
+
+
+
+             }
+         });
+
+
+
+
+         try {
+             Thread.currentThread().sleep(10000);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+
+         mMainActivity.runOnUiThread(new Runnable() {
+             @Override
+             public void run() {
+                 drawerLayout.openDrawer(navigationView);
+                 assertNotNull(inbox);
+                 mMainActivity.onNavigationItemSelected(inbox);
+
+
+
+             }
+         });
+
+
+
+         try {
+             Thread.currentThread().sleep(5000);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+
+         mMainActivity.runOnUiThread(new Runnable() {
+             @Override
+             public void run() {
+                 drawerLayout.openDrawer(navigationView);
+                 assertNotNull(repeating_quests);
+                 mMainActivity.onNavigationItemSelected(repeating_quests);
+
+
+
+             }
+         });
+
+
+         try {
+             Thread.currentThread().sleep(5000);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+
+         mMainActivity.runOnUiThread(new Runnable() {
+             @Override
+             public void run() {
+                 drawerLayout.openDrawer(navigationView);
+                 assertNotNull(growth);
+                 mMainActivity.onNavigationItemSelected(growth);
+
+
+
+             }
+         });
+
+
+
+         try {
+             Thread.currentThread().sleep(5000);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+
+         mMainActivity.runOnUiThread(new Runnable() {
+             @Override
+             public void run() {
+                 drawerLayout.openDrawer(navigationView);
+                 assertNotNull(rewards);
+                 mMainActivity.onNavigationItemSelected(rewards);
+
+
+
+             }
+         });
+
+
+
+         mMainActivity.runOnUiThread(new Runnable() {
+             @Override
+             public void run() {
+                 drawerLayout.openDrawer(navigationView);
+                 assertNotNull(settings);
+                 mMainActivity.onNavigationItemSelected(settings);
+
+
+
+             }
+         });
+
+         try {
+             Thread.currentThread().sleep(5000);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+
+
+         try {
+             Thread.currentThread().sleep(5000);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+
+
+
+         mMainActivity.runOnUiThread(new Runnable() {
+             @Override
+             public void run() {
+                 drawerLayout.openDrawer(navigationView);
+                 assertNotNull(feedback);
+                 mMainActivity.onNavigationItemSelected(feedback);
+
+
+
+             }
+         });
 
 
     }
-
-
-
-
-
-
-
-
-
+    
 
 }
