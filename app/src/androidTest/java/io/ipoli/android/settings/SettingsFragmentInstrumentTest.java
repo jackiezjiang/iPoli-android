@@ -94,12 +94,14 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
 
         //Thread.currentThread().sleep(10000);
 
-       Switch switch_notify = (Switch) settingsFragment.getView().findViewById(R.id.ongoing_notification);
+       RelativeLayout relativeLayout = (RelativeLayout) settingsFragment.getView().findViewById(R.id.ongoing_notification_container);
 
+       Switch switch_notify = (Switch) settingsFragment.getView().findViewById(R.id.ongoing_notification);
 
         mMainActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                relativeLayout.performClick();
                 switch_notify.performClick();
 
             }
@@ -136,6 +138,7 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
                 linearLayoutCal.performClick();
             }
         });
+
 
 
 
@@ -226,12 +229,7 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
 
 
     }
-
-
-
-
-
-
+    
 
 
 }
