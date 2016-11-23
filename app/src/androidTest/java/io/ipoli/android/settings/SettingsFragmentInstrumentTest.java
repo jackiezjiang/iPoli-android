@@ -101,13 +101,7 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
             @Override
             public void run() {
                 switch_notify.performClick();
-                try {
-                    sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
 
-                switch_notify.performClick();
             }
         });
 
@@ -155,13 +149,7 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
             @Override
             public void run() {
                 switch_challenge.performClick();
-                try {
-                    sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
 
-                switch_challenge.performClick();
             }
         });
 
@@ -171,10 +159,45 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
 
         TextView challengeStartHint = (TextView) settingsFragment.getView().findViewById(R.id.daily_challenge_start_time_hint);
         assertEquals("Remind me at", challengeStartHint.getText().toString());
+
+        mMainActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                challengeStartHint.performClick();
+
+            }
+        });
+
+
+
+
+
         TextView challengeStartTime = (TextView) settingsFragment.getView().findViewById(R.id.daily_challenge_start_time);
         assertEquals("10:00", challengeStartTime.getText().toString());
+
+        mMainActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                challengeStartTime.performClick();
+
+            }
+        });
+
+
+
+
         TextView challengeDays = (TextView) settingsFragment.getView().findViewById(R.id.daily_challenge_days);
         assertEquals("Mon, Tue, Wed, Thu, Fri", challengeDays.getText().toString());
+
+
+        mMainActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                challengeDays.performClick();
+
+            }
+        });
+
 
 
 
