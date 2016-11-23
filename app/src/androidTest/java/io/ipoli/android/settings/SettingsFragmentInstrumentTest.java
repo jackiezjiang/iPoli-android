@@ -143,8 +143,6 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
 
 
 
-
-
         Switch switch_challenge = (Switch) settingsFragment.getView().findViewById(R.id.daily_challenge_notification);
 
 
@@ -160,12 +158,14 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
 
 
 
+        LinearLayout linearLayoutDailyStart = (LinearLayout) settingsFragment.getView().findViewById(R.id.daily_challenge_start_time_container);
         TextView challengeStartHint = (TextView) settingsFragment.getView().findViewById(R.id.daily_challenge_start_time_hint);
         assertEquals("Remind me at", challengeStartHint.getText().toString());
 
         mMainActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                linearLayoutDailyStart.performClick();
                 challengeStartHint.performClick();
 
             }
@@ -189,6 +189,9 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
 
 
 
+
+        RelativeLayout LayoutDailyNoti = (RelativeLayout) settingsFragment.getView().findViewById(R.id.daily_challenge_notification_container);
+        LinearLayout LayoutDailyDays = (LinearLayout) settingsFragment.getView().findViewById(R.id.daily_challenge_days_container);
         TextView challengeDays = (TextView) settingsFragment.getView().findViewById(R.id.daily_challenge_days);
         assertEquals("Mon, Tue, Wed, Thu, Fri", challengeDays.getText().toString());
 
@@ -196,6 +199,8 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
         mMainActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                LayoutDailyNoti.performClick();
+                LayoutDailyDays.performClick();
                 challengeDays.performClick();
 
             }
@@ -229,7 +234,7 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
 
 
     }
-    
+
 
 
 }
