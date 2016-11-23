@@ -70,7 +70,19 @@ public class EditQuestActivityInstrumentTest extends ActivityInstrumentationTest
 
 
 
-        //ActionMenuItemView button = (ActionMenuItemView) editQuestActivity.findViewById(R.id.action_save);
+        ActionMenuItemView button = (ActionMenuItemView) editQuestActivity.findViewById(R.id.action_save);
+
+        editQuestActivity.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                button.callOnClick();
+
+            }
+        });
+
+        /*
         editQuestActivity.runOnUiThread(new Runnable() {
 
             @Override
@@ -82,7 +94,7 @@ public class EditQuestActivityInstrumentTest extends ActivityInstrumentationTest
         });
 
 
-
+*/
 
 
 
