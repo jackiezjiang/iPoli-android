@@ -94,7 +94,6 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
 
         //Thread.currentThread().sleep(10000);
 
-        RelativeLayout relativeLayout = (RelativeLayout) settingsFragment.getView().findViewById(R.id.ongoing_notification_container);
        Switch switch_notify = (Switch) settingsFragment.getView().findViewById(R.id.ongoing_notification);
 
 
@@ -102,11 +101,111 @@ public class SettingsFragmentInstrumentTest extends ActivityInstrumentationTestC
             @Override
             public void run() {
                 switch_notify.performClick();
+                try {
+                    sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 switch_notify.performClick();
             }
         });
 
+
+
+        LinearLayout linearLayoutAvatar = (LinearLayout) settingsFragment.getView().findViewById(R.id.pick_avatar_container);
+        assertTrue(linearLayoutAvatar.isClickable());
+        mMainActivity.runOnUiThread(new Runnable() {
+         @Override
+        public void run() {
+             linearLayoutAvatar.performClick();
+        }
+    });
+
+
+
+        LinearLayout linearLayoutTutor = (LinearLayout) settingsFragment.getView().findViewById(R.id.show_tutorial_container);
+        assertTrue(linearLayoutTutor.isClickable());
+        mMainActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                linearLayoutTutor.performClick();
+            }
+        });
+
+
+        LinearLayout linearLayoutCal = (LinearLayout) settingsFragment.getView().findViewById(R.id.sync_calendars_container);
+        assertTrue(linearLayoutCal.isClickable());
+        mMainActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                linearLayoutCal.performClick();
+            }
+        });
+
+
+
+
+
+
+        Switch switch_challenge = (Switch) settingsFragment.getView().findViewById(R.id.daily_challenge_notification);
+
+
+        mMainActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                switch_challenge.performClick();
+                try {
+                    sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                switch_challenge.performClick();
+            }
+        });
+
+
+
+
+
+        TextView challengeStartHint = (TextView) settingsFragment.getView().findViewById(R.id.daily_challenge_start_time_hint);
+        assertEquals("Remind me at", challengeStartHint.getText().toString());
+        TextView challengeStartTime = (TextView) settingsFragment.getView().findViewById(R.id.daily_challenge_start_time);
+        assertEquals("10:00", challengeStartTime.getText().toString());
+        TextView challengeDays = (TextView) settingsFragment.getView().findViewById(R.id.daily_challenge_days);
+        assertEquals("Mon, Tue, Wed, Thu, Fri", challengeDays.getText().toString());
+
+
+
+        LinearLayout rate = (LinearLayout) settingsFragment.getView().findViewById(R.id.rate_container);
+        assertTrue(rate.isClickable());
+        mMainActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                rate.performClick();
+            }
+        });
+
+
+        LinearLayout version = (LinearLayout) settingsFragment.getView().findViewById(R.id.app_version_container);
+        assertTrue(version.isClickable());
+        mMainActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                version.performClick();
+            }
+        });
+
+
+
+
+
+
     }
+
+
+
 
 
 
