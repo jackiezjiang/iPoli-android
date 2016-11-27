@@ -6,6 +6,7 @@ import android.support.v7.view.menu.ActionMenuItemView;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 import com.robotium.solo.Solo;
@@ -79,9 +80,11 @@ public class EditQuestActivityInstrumentTest extends ActivityInstrumentationTest
         //solo.enterText(0, "lazy");
         //solo.clickOnButton("OK");
 
-        solo.clickOnView(solo.getView(R.id.quest_note_container));
-        solo.enterText(1, "test");
-        solo.clickOnButton("OK");
+       // solo.clickOnView(solo.getView(R.id.quest_note_container));
+        //solo.enterText(1, "test");
+        //solo.clickOnButton("OK");
+
+
 
 
 
