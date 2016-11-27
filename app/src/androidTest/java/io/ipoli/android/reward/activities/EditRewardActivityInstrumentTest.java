@@ -55,96 +55,29 @@ public class EditRewardActivityInstrumentTest extends ActivityInstrumentationTes
 
 
 
+    @Test
+    public void testAdd() {
+
+        solo.enterText(0, "Test A reward");
+
+        this.solo.clickOnView(solo.getView(R.id.reward_description_container));
 
 
-
-        @Test
-    public void testAddReward() {
-        String additionalText = textInputEditText.getEditableText().toString();
-        //final Button button=  (Button) quickAddActivity.findViewById(R.id.add);
-        //pressImeActionButton();
-        final String text = "TEST a big reward";
-        editRewardActivity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                textInputEditText.setText(text);
-            }
+        solo.enterText(1, "I like it");
+        solo.clickOnButton("OK");
 
 
-        });
+        this.solo.clickOnView(solo.getView(R.id.reward_price_container));
+        solo.scrollToBottom();
+        solo.clickOnButton("OK");
 
-        RelativeLayout rewardReason = (RelativeLayout) editRewardActivity.findViewById(R.id.reward_description_container);
-
-
-
-            TextView rewardWhy = (TextView) editRewardActivity.findViewById(R.id.reward_description_value);
-        TextView rewardAmount = (TextView) editRewardActivity.findViewById(R.id.reward_price_value);
-            editRewardActivity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    rewardReason.performClick();
-                }
-
-
-            });
-
-
-            //getViewFromDialogByIndex(solo, TextPickerFragment,
-
-
-
-
-            final String reason = "Because I like i";
-            final String price = "A Dollar";
-            TextPickerFragment textPickerFragment = new TextPickerFragment();
-            FragmentManager fragmentManager = editRewardActivity.getSupportFragmentManager();
-
-
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().add(textPickerFragment, null);
-
-
-            editRewardActivity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    fragmentManager.executePendingTransactions();
-                }
-            });
-
-
-             View save =  editRewardActivity.findViewById(R.id.action_save);
-
-
-            editRewardActivity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    save.performClick();
-
-                }
-            });
-
-
-
-
-
-
+        this.solo.clickOnView(solo.getView(R.id.action_save));
 
 
     }
 
 
 
-    public static View getViewFromDialogByIndex(Solo solo, Class viewType , int index){
-        ArrayList<View> dialogViews = solo.getCurrentViews();
-        ArrayList<View> typeViews = new ArrayList<View>();
-        for(View currentTypeView : dialogViews){
-            if(viewType.isInstance(currentTypeView)){
-                typeViews.add(currentTypeView);
-            }
-        }
-        if(dialogViews.size() != 0){
-            return typeViews.get(index);
-        }else {
-            return null;
-        }
-    }
+
+
 }
