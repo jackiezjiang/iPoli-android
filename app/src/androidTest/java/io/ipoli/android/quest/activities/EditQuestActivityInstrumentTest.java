@@ -4,6 +4,7 @@ import android.app.Instrumentation;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.view.menu.ActionMenuItemView;
 import android.test.ActivityInstrumentationTestCase2;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.Button;
 
@@ -39,15 +40,14 @@ public class EditQuestActivityInstrumentTest extends ActivityInstrumentationTest
             super.setUp();
             editQuestActivity= getActivity();
             addQuestAutocompleteTextView = (AddQuestAutocompleteTextView) editQuestActivity.findViewById(R.id.quest_text);
-
+            solo = new Solo(getInstrumentation(),getActivity());
         }
 
 
     @Test
     public void testEmptyText() {
 
-       String text = "Test today at 17:00 for 10 min";
-
+        String text = "Test today at 17:00 for 10 min";
 
 
         editQuestActivity.runOnUiThread(new Runnable() {
@@ -61,48 +61,36 @@ public class EditQuestActivityInstrumentTest extends ActivityInstrumentationTest
         });
 
 
-        try {
-            Thread.currentThread().sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        solo.clickOnView(solo.getView(R.id.action_save));
+
+        solo.clickOnView(solo.getView(R.id.quest_end_date_container));
+        solo.clickOnButton("OK");
+
+        solo.clickOnView(solo.getView(R.id.quest_start_time_container));
+        solo.clickOnButton("OK");
+
+        solo.clickOnView(solo.getView(R.id.quest_duration_container));
+        solo.clickOnButton("OK");
+
+        solo.clickOnView(solo.getView(R.id.quest_frequency_container));
+        solo.clickOnButton("DONE");
+
+        //solo.clickOnView(solo.getView(R.id.quest_add_reminder_container));
+        //solo.enterText(0, "lazy");
+        //solo.clickOnButton("OK");
+
+        solo.clickOnView(solo.getView(R.id.quest_note_container));
+        solo.enterText(0, "test");
+        solo.clickOnButton("OK");
 
 
 
-
-        ActionMenuItemView button = (ActionMenuItemView) editQuestActivity.findViewById(R.id.action_save);
-
-        editQuestActivity.runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-
-                button.callOnClick();
-
-            }
-        });
-
-        /*
-        editQuestActivity.runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-
-                editQuestActivity.saveQuest();
-
-            }
-        });
-
-
-*/
-
-
-
-
-
+        solo.clickOnView(solo.getView(R.id.action_save));
 
 
 
     }
+
+
 
 }
