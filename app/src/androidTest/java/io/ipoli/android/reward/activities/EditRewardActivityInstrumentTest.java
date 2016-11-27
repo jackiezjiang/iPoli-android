@@ -111,6 +111,17 @@ public class EditRewardActivityInstrumentTest extends ActivityInstrumentationTes
             });
 
 
+             View save =  editRewardActivity.findViewById(R.id.action_save);
+
+
+            editRewardActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    save.performClick();
+
+                }
+            });
+
 
 
 
