@@ -80,7 +80,7 @@ public class EditQuestActivityInstrumentTest extends ActivityInstrumentationTest
         //solo.clickOnButton("OK");
 
         solo.clickOnView(solo.getView(R.id.quest_note_container));
-        solo.enterText(0, "test");
+        solo.enterText(1, "test");
         solo.clickOnButton("OK");
 
 
