@@ -74,6 +74,7 @@ public class ChallengeListFragmentInstrumentTest  extends ActivityInstrumentatio
         Menu menu = navigationView.getMenu();
         MenuItem challenges = menu.findItem(R.id.challenges);
 
+
         mMainActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -82,15 +83,12 @@ public class ChallengeListFragmentInstrumentTest  extends ActivityInstrumentatio
                 FragmentManager fragmentManager = mMainActivity.getSupportFragmentManager();
                 mMainActivity.onNavigationItemSelected(challenges);
 
-                try {
-                    Thread.currentThread().sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
 
                 ChallengeListFragment fragment = (ChallengeListFragment)fragmentManager.findFragmentById(R.id.content_container);
                 FloatingActionButton addChallenge = (FloatingActionButton) fragment.getView().findViewById(R.id.add_challenge);
+                assertNotNull(addChallenge);
+
+
                 addChallenge.performClick();
 
             }
