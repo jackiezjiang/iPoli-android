@@ -45,7 +45,7 @@ public class ChallengeCompleteActivityInstrumentTest extends ActivityInstrumenta
         TextView textView = (TextView) challengeCompleteActivity.findViewById(R.id.experience_text);
         assertEquals("0", textView.getText());
         try {
-            Thread.currentThread().sleep(10000);
+            Thread.currentThread().sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
